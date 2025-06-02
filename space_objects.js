@@ -1,4 +1,6 @@
+import * as astronomical_bodies from "./astronomical_bodies.js"
 import * as utils from "./utils.js"
+
 
 class ship {
     #name
