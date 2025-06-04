@@ -1,5 +1,5 @@
-import * as astronomical_bodies from "./astronomical_bodies.js"
-import * as utils from "./utils.js"
+import * as AstronomicalBodies from "./astronomical_bodies.js"
+import * as Utils from "./utils.js"
 
 
 class ship {
@@ -60,7 +60,7 @@ class player extends ship {
 
 class alienShip extends ship {
     constructor(name) {
-        super(name, utils.randomBetweenRange(3, 6), utils.randomBetweenRange(2, 4), utils.randomBetweenRange(0.6, 0.8, 1))
+        super(name, Utils.randomBetweenRange(3, 6), Utils.randomBetweenRange(2, 4), Utils.randomBetweenRange(0.6, 0.8, 1))
     }
 }
 
