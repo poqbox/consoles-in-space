@@ -1,3 +1,82 @@
+:root {
+    --radar-diameter: 400px;
+    --radar-radius: calc(var(--radar-diameter) / 2);
+    --range-ring-r1: calc(var(--radar-radius) * 3/4);
+    --range-ring-r2: calc(var(--radar-radius) * 2/4);
+    --range-ring-r3: calc(var(--radar-radius) * 1/4);
+    --range-ring-d1: calc(var(--range-ring-r1) * 2);
+    --range-ring-d2: calc(var(--range-ring-r2) * 2);
+    --range-ring-d3: calc(var(--range-ring-r3) * 2);
+
+    --range-ring-d_c: 10px;
+
+    --dashboard-width: 500px;
+    --dashboard-height: calc(var(--radar-diameter) + 80px);
+}
+
 * {
     font-family: 'Courier New', Courier, monospace;
+}
+
+#main {
+    max-width: 800px;
+    margin: auto;
+}
+
+#dashboard {
+    margin: auto;
+    margin-top: 40px;
+    padding: 8px 2px;
+    border: 2px solid black;
+    width: var(--dashboard-width);
+    height: var(--dashboard-height);
+    display: flex;
+}
+#stats-display {
+    overflow-y: visible;
+    width: 0;
+}
+#radar, .range-ring {
+    position: relative;
+    margin: auto;
+    margin-top: 44px;
+    border: 2px solid black;
+}
+#radar {
+    width: var(--radar-diameter);
+    height: var(--radar-diameter);
+    border-radius: var(--radar-radius);
+    border: 8px solid black;
+    
+    #range-ring-1 {
+        width: var(--range-ring-d1);
+        height: var(--range-ring-d1);
+        border-radius: var(--range-ring-r1);
+    }
+    #range-ring-2 {
+        width: var(--range-ring-d2);
+        height: var(--range-ring-d2);
+        border-radius: var(--range-ring-r2);
+    }
+    #range-ring-3 {
+        width: var(--range-ring-d3);
+        height: var(--range-ring-d3);
+        border-radius: var(--range-ring-r3);
+    }
+    #range-ring-center {
+        width: var(--range-ring-d_c);
+        height: var(--range-ring-d_c);
+        border-radius: var(--range-ring-d_c);
+    }
+}
+
+#lexicon {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    border: 2px solid black;
+    margin: auto;
+    left: 0;
+    right: 0;
+    border-radius: 16px;
 }
