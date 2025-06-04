@@ -1,14 +1,16 @@
-let bodies = await fetchBodies()
 let ids = []
 let names = []
 let english_names = []
+let bodies = fetchBodies()
 
 
-for (const body of bodies) {
-    ids.push(body.id)
-    names.push(body.name)
-    english_names.push(body.englishName)
-}
+bodies.then(data => {
+    for (const body of data) {
+        ids.push(body.id)
+        names.push(body.name)
+        english_names.push(body.englishName)
+    }
+})
 
 
 async function fetchBodies() {
