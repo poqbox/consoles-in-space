@@ -1,4 +1,5 @@
 import * as spaceObjects from "./space_objects.js"
+import * as hud from "./hud.js"
 
 
 var jsAssembly = new spaceObjects.USSAssembly("JS Assembly")
@@ -13,6 +14,12 @@ globalThis.jsAssembly = jsAssembly
 globalThis.spaceBattles = spaceBattles
 for (const key in spaceBattles)
     globalThis[key] = spaceBattles[key]
+globalThis.firstPage = hud.Lexicon.firstPage
+globalThis.lastPage = hud.Lexicon.lastPage
+globalThis.nextPage = hud.Lexicon.nextPage
+globalThis.prevPage = hud.Lexicon.prevPage
+globalThis.currentPage = hud.Lexicon.currentPage
+globalThis.searchLexicon = hud.Lexicon.search
 
 
 console.log(`
