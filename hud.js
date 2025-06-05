@@ -1,16 +1,6 @@
 import * as AstronomicalBodies from "./astronomical_bodies.js"
 export {Lexicon}
 
-const lexiconEl = document.getElementById("lexicon")
-const lexiconDisplayEl = document.getElementById("lexicon-display")
-
-
-const bodies = await AstronomicalBodies.bodies
-let current_page = 1
-let page_entries = 10
-let entries_num = bodies.length
-console.log(bodies)
-
 
 class Lexicon {
     static firstPage() {
@@ -96,6 +86,15 @@ class Lexicon {
 }
 
 
+const lexiconEl = document.getElementById("lexicon")
+const lexiconDisplayEl = document.getElementById("lexicon-display")
+
+
+const bodies = await AstronomicalBodies.bodies
+let current_page = 1
+let page_entries = 10
+let entries_num = bodies.length
+console.log(bodies)
+
+
 Lexicon.firstPage()
-
-

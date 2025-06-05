@@ -1,3 +1,6 @@
+export {bodies, ids, names, english_names, getBodyById, getIdsByEnglishName}
+
+
 let ids = []
 let names = []
 let english_names = []
@@ -38,6 +41,3 @@ async function getIdsByEnglishName(english_name) {
             return ids
     }
 }
-
-
-export {bodies, ids, names, english_names, getBodyById, getIdsByEnglishName}

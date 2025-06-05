@@ -1,5 +1,6 @@
 import * as AstronomicalBodies from "./astronomical_bodies.js"
 import * as Utils from "./utils.js"
+export {player as USSAssembly, alienShip, spaceBattle}
 
 
 class ship {
@@ -149,8 +150,3 @@ Start a turn with <enter_ship>.battle.attack()`
         console.log(`> ${ship.name} has retreated.`)
     }
 }
-
-
-
-
-export {player as USSAssembly, alienShip, spaceBattle}
