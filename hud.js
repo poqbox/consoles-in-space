@@ -2,6 +2,18 @@ import * as AstronomicalBodies from "./astronomical_bodies.js"
 export {Lexicon}
 
 
+const lexiconEl = document.getElementById("lexicon")
+const lexiconDisplayBodyEl = document.getElementById("lexicon-display-body")
+const lexiconDisplayFooterEl = document.getElementById("lexicon-display-footer")
+
+
+const bodies = await AstronomicalBodies.bodies
+let current_page = 1
+let page_entries = 10
+let entries_num = bodies.length
+let lastPage = Math.floor(entries_num / page_entries)
+
+
 class Lexicon {
     static initialLoad() {
         Lexicon.#fillPage(0)
@@ -54,24 +66,25 @@ class Lexicon {
         Lexicon.#fillPage((current_page - 1) * page_entries)
     }
     static async search(name) {
+        const pBody = AstronomicalBodies.getBodyById(name)
         Lexicon.open()
-        const pre = document.createElement("pre")
-        pre.textContent = ""
+
+        // setup page
+        this.#resetPage()
+        const pre = lexiconDisplayBodyEl.appendChild(document.createElement("pre"))
 
         let iterator_t = 1
-        const body = Lexicon.getEntry(await AstronomicalBodies.getBodyById(name))
-        for (const key in body) {
+        const entry = Lexicon.#getEntry(await pBody)
+        // populate page
+        for (const key in entry) {
             window.setTimeout(() => {
-                pre.textContent += `${key}: ${body[key]}\n`
+                pre.textContent += `${key}: ${entry[key]}\n`
             }, 100 * iterator_t)
             iterator_t++
         }
-        lexiconDisplayBodyEl.innerHTML = ""
-        lexiconDisplayFooterEl.textContent = ""
-        lexiconDisplayBodyEl.append(pre)
     }
 
-    static getEntry(body) {
+    static #getEntry(body) {
         let obj = {}
         try {obj.name = body.name}
         catch {obj.name = undefined}
@@ -95,19 +108,22 @@ class Lexicon {
     static async #fillPage(starting_entry_index, entries_per_page=page_entries) {
         const pBodies = AstronomicalBodies.bodies
 
+        // setup page
+        this.#resetPage()
+        const pre1 = lexiconDisplayBodyEl.appendChild(document.createElement("pre"))
+        const pre2 = lexiconDisplayBodyEl.appendChild(document.createElement("pre"))
         lexiconDisplayBodyEl.style.cssText = `
             display: flex;
             justify-content: space-between
         `
-        const pre1 = document.createElement("pre")
-        const pre2 = document.createElement("pre")
         pre2.style.flexBasis = "140px"
-        const bodies = await pBodies
 
         let iterator_t = 1
         let j = starting_entry_index + entries_per_page
+        const bodies = await pBodies
         if (j > bodies.length)
             j = bodies.length
+        // populate page
         for (let i=starting_entry_index; i < j; i++) {
             let body = bodies[i]
             window.setTimeout(() => {
@@ -116,28 +132,15 @@ class Lexicon {
             }, 100 * iterator_t)
             iterator_t++
         }
-        lexiconDisplayBodyEl.innerHTML = ""
-        lexiconDisplayFooterEl.textContent = ""
-        lexiconDisplayBodyEl.append(pre1)
-        lexiconDisplayBodyEl.append(pre2)
         window.setTimeout(() => {
             lexiconDisplayFooterEl.textContent = `Pg. ${current_page}/${lastPage}`
         }, 100 * iterator_t)
     }
+    static #resetPage() {
+        lexiconDisplayBodyEl.innerHTML = ""
+        lexiconDisplayFooterEl.textContent = ""
+    }
 }
-
-
-const lexiconEl = document.getElementById("lexicon")
-const lexiconDisplayBodyEl = document.getElementById("lexicon-display-body")
-const lexiconDisplayFooterEl = document.getElementById("lexicon-display-footer")
-
-
-const bodies = await AstronomicalBodies.bodies
-let current_page = 1
-let page_entries = 10
-let entries_num = bodies.length
-let lastPage = Math.floor(entries_num / page_entries)
-console.log(bodies)
 
 
 lexiconEl.addEventListener("click", (e) => {
