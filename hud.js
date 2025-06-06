@@ -11,7 +11,7 @@ const bodies = await AstronomicalBodies.bodies
 let current_page = 1
 let page_entries = 10
 let entries_num = bodies.length
-let lastPage = Math.floor(entries_num / page_entries)
+let last_page = Math.ceil(entries_num / page_entries)
 
 
 class Lexicon {
@@ -43,12 +43,12 @@ class Lexicon {
     }
     static lastPage() {
         Lexicon.open()
-        current_page = Math.floor(lastPage)
+        current_page = last_page
         Lexicon.#fillPage(entries_num - entries_num%page_entries)
     }
     static nextPage() {
         Lexicon.open()
-        if (current_page < Math.ceil(entries_num / page_entries)) {
+        if (current_page < last_page) {
             current_page++
             Lexicon.#fillPage(current_page * page_entries)
         }
@@ -133,7 +133,7 @@ class Lexicon {
             iterator_t++
         }
         window.setTimeout(() => {
-            lexiconDisplayFooterEl.textContent = `Pg. ${current_page}/${lastPage}`
+            lexiconDisplayFooterEl.textContent = `Pg. ${current_page}/${last_page}`
         }, 100 * iterator_t)
     }
     static #resetPage() {
