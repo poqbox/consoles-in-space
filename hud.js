@@ -12,6 +12,7 @@ let current_page = 1
 let page_entries = 10
 let entries_num = bodies.length
 let last_page = Math.ceil(entries_num / page_entries)
+const page_update_interval = 110
 
 
 class Lexicon {
@@ -85,7 +86,7 @@ class Lexicon {
         for (const key in entry) {
             window.setTimeout(() => {
                 pre.textContent += `${key}: ${entry[key]}\n`
-            }, 100 * iterator_t)
+            }, page_update_interval * iterator_t)
             iterator_t++
         }
     }
@@ -135,12 +136,12 @@ class Lexicon {
             window.setTimeout(() => {
                 pre1.textContent += `${body.englishName}\n`
                 pre2.textContent += `${body.id}\n`
-            }, 100 * iterator_t)
+            }, page_update_interval * iterator_t)
             iterator_t++
         }
         window.setTimeout(() => {
             lexiconDisplayFooterEl.textContent = `Pg. ${current_page}/${last_page}`
-        }, 100 * iterator_t)
+        }, page_update_interval * iterator_t)
     }
     static #resetPage() {
         lexiconDisplayBodyEl.innerHTML = ""

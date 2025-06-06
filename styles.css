@@ -95,7 +95,7 @@ body {
     border-radius: 16px;
     background-color: #393a3c;
     transition-property: top;
-    transition-duration: 0.2s;
+    transition-duration: 0.18s;
     transition-timing-function: ease-out;
 
     h2 {
