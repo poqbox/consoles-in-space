@@ -58,10 +58,16 @@ class Lexicon {
         const pre = document.createElement("pre")
         pre.textContent = ""
 
+        let iterator_t = 1
         const body = Lexicon.getEntry(await AstronomicalBodies.getBodyById(name))
-        for (const key in body)
-            pre.textContent += `${key}: ${body[key]}\n`
+        for (const key in body) {
+            window.setTimeout(() => {
+                pre.textContent += `${key}: ${body[key]}\n`
+            }, 100 * iterator_t)
+            iterator_t++
+        }
         lexiconDisplayBodyEl.innerHTML = ""
+        lexiconDisplayFooterEl.textContent = ""
         lexiconDisplayBodyEl.append(pre)
     }
 
