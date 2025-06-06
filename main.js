@@ -26,9 +26,7 @@ globalThis.searchLexicon = hud.Lexicon.search
 console.log(`
 Welcome to Space!
 
-Your mission is to defend the your planet from space invaders.
-Your ship is the jsAssembly, and these are the available 
-space battles:
+Your mission is to defend the your planet from space invaders. Your ship is the jsAssembly, and these are the available space battles:
 ${spaceBattles_as_text}
 
 You can enter a space battle with:
@@ -37,4 +35,11 @@ You can enter a space battle with:
 
 console.log(`Try:
 jsAssembly.enterSpaceBattle(europaA1)
+
+Or skim through the astronomical bodies in your lexicon:
+currentPage()
+nextPage()
+prevPage()
+search([enter_astronomical_body_id])
 `)
+console.log("\n")
