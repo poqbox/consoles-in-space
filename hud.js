@@ -126,7 +126,7 @@ console.log(bodies)
 
 
 lexiconEl.addEventListener("click", (e) => {
-    if (!lexiconEl.classList.contains("opened") || e.target.classList.contains("opened"))
+    if (e.target.classList.contains("closable") || !lexiconEl.classList.contains("opened"))
         Lexicon.toggle()
 })
 Lexicon.initialLoad()
