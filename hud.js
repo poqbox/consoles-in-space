@@ -50,19 +50,18 @@ class Lexicon {
         Lexicon.open()
         if (current_page < last_page) {
             current_page++
-            Lexicon.#fillPage(current_page * page_entries)
+            Lexicon.#fillPage((current_page - 1) * page_entries)
         }
     }
     static prevPage() {
         Lexicon.open()
         if (current_page > 1) {
             current_page--
-            Lexicon.#fillPage((current_page - 2) * page_entries)
+            Lexicon.#fillPage((current_page - 1) * page_entries)
         }
     }
     static currentPage() {
         Lexicon.open()
-        current_page--
         Lexicon.#fillPage((current_page - 1) * page_entries)
     }
     static toPage(page_number) {
