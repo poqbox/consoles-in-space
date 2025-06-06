@@ -8,17 +8,16 @@ class Lexicon {
         current_page = 1
     }
     static toggle() {
-        lexiconEl.classList.remove("lexicon-tutorial")
         if (lexiconEl.classList.contains("opened")) {
             lexiconEl.style.top = "var(--lexicon-closed-top)"
             lexiconEl.classList.replace("opened", "closed")
         }
-        else if (lexiconEl.classList.contains("closed")) {
-            lexiconEl.style.top = "var(--lexicon-opened-top)"
-            lexiconEl.classList.replace("closed", "opened")
+        else {
+            Lexicon.open()
         }
     }
     static open() {
+        lexiconEl.classList.remove("lexicon-tutorial")
         if (lexiconEl.classList.contains("closed")) {
             lexiconEl.style.top = "var(--lexicon-opened-top)"
             lexiconEl.classList.replace("closed", "opened")
