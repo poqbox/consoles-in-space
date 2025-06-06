@@ -3,6 +3,10 @@ export {Lexicon}
 
 
 class Lexicon {
+    static initialLoad() {
+        Lexicon.#fillPage(0)
+        current_page = 1
+    }
     static toggle() {
         lexiconEl.classList.remove("lexicon-tutorial")
         if (lexiconEl.classList.contains("opened")) {
@@ -14,32 +18,44 @@ class Lexicon {
             lexiconEl.classList.replace("closed", "opened")
         }
     }
+    static open() {
+        if (lexiconEl.classList.contains("closed")) {
+            lexiconEl.style.top = "var(--lexicon-opened-top)"
+            lexiconEl.classList.replace("closed", "opened")
+        }
+    }
 
     static firstPage() {
+        Lexicon.open()
         Lexicon.#fillPage(0)
         current_page = 1
     }
     static lastPage() {
+        Lexicon.open()
         Lexicon.#fillPage(entries_num - entries_num%page_entries)
         current_page = Math.floor(entries_num / page_entries)
     }
     static nextPage() {
+        Lexicon.open()
         if (current_page < Math.ceil(entries_num / page_entries)) {
             Lexicon.#fillPage(current_page * page_entries)
             current_page++
         }
     }
     static prevPage() {
+        Lexicon.open()
         if (current_page > 1) {
             Lexicon.#fillPage((current_page - 2) * page_entries)
             current_page--
         }
     }
     static currentPage() {
+        Lexicon.open()
         Lexicon.#fillPage((current_page - 1) * page_entries)
         current_page--
     }
     static async search(name) {
+        Lexicon.open()
         const pre = document.createElement("pre")
         pre.textContent = ""
 
@@ -113,4 +129,4 @@ lexiconEl.addEventListener("click", (e) => {
     if (!lexiconEl.classList.contains("opened") || e.target.classList.contains("opened"))
         Lexicon.toggle()
 })
-Lexicon.firstPage()
+Lexicon.initialLoad()
