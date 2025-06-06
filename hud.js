@@ -17,7 +17,6 @@ const page_update_interval = 110
 
 class Lexicon {
     static initialLoad() {
-        Lexicon.#fillPage(0)
         current_page = 1
     }
     static toggle() {

@@ -24,6 +24,9 @@
     font-family: 'Courier New', Courier, monospace;
     margin: 0
 }
+pre {
+    text-wrap: wrap;
+}
 
 body {
     background-color: #041421;
@@ -97,6 +100,7 @@ body {
     transition-property: top;
     transition-duration: 0.18s;
     transition-timing-function: ease-out;
+    overflow: hidden;
 
     h2 {
         margin-top: 18px;
