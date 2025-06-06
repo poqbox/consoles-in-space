@@ -88,11 +88,11 @@ body {
     width: var(--lexicon-width);
     height: var(--lexicon-height);
     border: 5px solid rgb(42, 42, 42);
-    box-shadow: 0 6px 2px 4px;
+    border-radius: 16px;
     margin: auto;
     left: 0;
     right: 0;
-    border-radius: 16px;
+    box-shadow: 0 6px 2px 4px;
     background-color: #393a3c;
     transition-property: top;
     transition-duration: 0.18s;
@@ -113,8 +113,16 @@ body {
     animation-name: pulse;
 }
 @keyframes pulse {
-    from {box-shadow: 0 0}
-    to {box-shadow: 0 0 10px yellow}
+    from {
+        box-shadow:
+        0 0,
+        0 6px 2px 4px
+    }
+    to {
+        box-shadow:
+        0 0 10px yellow,
+        0 6px 2px 4px
+    }
 }
 #lexicon-display {
     border: 5px inset black;
