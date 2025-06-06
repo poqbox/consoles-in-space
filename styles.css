@@ -86,7 +86,8 @@ body {
     position: fixed;
     width: var(--lexicon-width);
     height: var(--lexicon-height);
-    border: 2px solid black;
+    border: 5px solid rgb(42, 42, 42);
+    box-shadow: 0 6px 2px 4px;
     margin: auto;
     left: 0;
     right: 0;
@@ -97,6 +98,7 @@ body {
     transition-timing-function: ease-out;
 
     h2 {
+        margin-left: 2px;
         margin-bottom: 8px;
     }
 }
