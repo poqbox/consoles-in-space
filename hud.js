@@ -98,13 +98,17 @@ class Lexicon {
         pre2.style.flexBasis = "140px"
         const bodies = await pBodies
 
+        let iterator = 1
         let j = starting_entry_index + entries_per_page
-        if (j > bodies.length) 
+        if (j > bodies.length)
             j = bodies.length
         for (let i=starting_entry_index; i < j; i++) {
             let body = bodies[i]
-            pre1.textContent += `${body.englishName}\n`
-            pre2.textContent += `${body.id}\n`
+            window.setTimeout(() => {
+                pre1.textContent += `${body.englishName}\n`
+                pre2.textContent += `${body.id}\n`
+            }, 100 * iterator)
+            iterator++
         }
         lexiconDisplayEl.innerHTML = ""
         lexiconDisplayEl.append(pre1)
