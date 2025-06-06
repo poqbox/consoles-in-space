@@ -18,6 +18,10 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+body {
+    background-color: #041421;
+
+}
 #main {
     max-width: 800px;
     margin: auto;
@@ -31,6 +35,7 @@
     width: var(--dashboard-width);
     height: var(--dashboard-height);
     display: flex;
+    background-color: #5d5e63;
 }
 #stats-display {
     overflow-y: visible;
@@ -39,14 +44,15 @@
 #radar, .range-ring {
     position: relative;
     margin: auto;
-    margin-top: 44px;
-    border: 2px solid black;
+    margin-top: 45px;
+    border: 1px solid #58c9d1;
 }
 #radar {
     width: var(--radar-diameter);
     height: var(--radar-diameter);
     border-radius: var(--radar-radius);
-    border: 8px solid black;
+    border: 1px solid black;
+    background-color: #0a2136;
     
     #range-ring-1 {
         width: var(--range-ring-d1);
@@ -79,6 +85,7 @@
     left: 0;
     right: 0;
     border-radius: 16px;
+    background-color: #393a3c;
 }
 #lexicon-display {
     padding: 12px;
