@@ -1,6 +1,9 @@
 :root {
     --lexicon-closed-top: -380px;
     --lexicon-opened-top: -16px;
+    --lexicon-width: 400px;
+    --lexicon-height: 400px;
+    --lexicon-display-height: calc(var(--lexicon-height) * 0.8);
 
     --radar-diameter: 400px;
     --radar-radius: calc(var(--radar-diameter) / 2);
@@ -81,8 +84,8 @@ body {
 
 #lexicon {
     position: fixed;
-    width: 400px;
-    height: 400px;
+    width: var(--lexicon-width);
+    height: var(--lexicon-height);
     border: 2px solid black;
     margin: auto;
     left: 0;
@@ -106,5 +109,8 @@ body {
     to {box-shadow: 0 0 10px yellow}
 }
 #lexicon-display {
-    padding: 12px;
+    border: 1px solid black;
+    height: var(--lexicon-display-height);
+    margin: 12px;
+    padding: 0 4px;
 }

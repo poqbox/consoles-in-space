@@ -110,6 +110,7 @@ console.log(bodies)
 
 
 lexiconEl.addEventListener("click", (e) => {
-    Lexicon.toggle()
+    if (!lexiconEl.classList.contains("opened") || e.target.classList.contains("opened"))
+        Lexicon.toggle()
 })
 Lexicon.firstPage()
