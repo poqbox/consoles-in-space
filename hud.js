@@ -26,32 +26,32 @@ class Lexicon {
 
     static firstPage() {
         Lexicon.open()
-        Lexicon.#fillPage(0)
         current_page = 1
+        Lexicon.#fillPage(0)
     }
     static lastPage() {
         Lexicon.open()
+        current_page = Math.floor(lastPage)
         Lexicon.#fillPage(entries_num - entries_num%page_entries)
-        current_page = Math.floor(entries_num / page_entries)
     }
     static nextPage() {
         Lexicon.open()
         if (current_page < Math.ceil(entries_num / page_entries)) {
-            Lexicon.#fillPage(current_page * page_entries)
             current_page++
+            Lexicon.#fillPage(current_page * page_entries)
         }
     }
     static prevPage() {
         Lexicon.open()
         if (current_page > 1) {
-            Lexicon.#fillPage((current_page - 2) * page_entries)
             current_page--
+            Lexicon.#fillPage((current_page - 2) * page_entries)
         }
     }
     static currentPage() {
         Lexicon.open()
-        Lexicon.#fillPage((current_page - 1) * page_entries)
         current_page--
+        Lexicon.#fillPage((current_page - 1) * page_entries)
     }
     static async search(name) {
         Lexicon.open()
@@ -61,8 +61,8 @@ class Lexicon {
         const body = Lexicon.getEntry(await AstronomicalBodies.getBodyById(name))
         for (const key in body)
             pre.textContent += `${key}: ${body[key]}\n`
-        lexiconDisplayEl.innerHTML = ""
-        lexiconDisplayEl.append(pre)
+        lexiconDisplayBodyEl.innerHTML = ""
+        lexiconDisplayBodyEl.append(pre)
     }
 
     static getEntry(body) {
@@ -89,7 +89,7 @@ class Lexicon {
     static async #fillPage(starting_entry_index, entries_per_page=page_entries) {
         const pBodies = AstronomicalBodies.bodies
 
-        lexiconDisplayEl.style.cssText = `
+        lexiconDisplayBodyEl.style.cssText = `
             display: flex;
             justify-content: space-between
         `
@@ -98,7 +98,7 @@ class Lexicon {
         pre2.style.flexBasis = "140px"
         const bodies = await pBodies
 
-        let iterator = 1
+        let iterator_t = 1
         let j = starting_entry_index + entries_per_page
         if (j > bodies.length)
             j = bodies.length
@@ -107,24 +107,30 @@ class Lexicon {
             window.setTimeout(() => {
                 pre1.textContent += `${body.englishName}\n`
                 pre2.textContent += `${body.id}\n`
-            }, 100 * iterator)
-            iterator++
+            }, 100 * iterator_t)
+            iterator_t++
         }
-        lexiconDisplayEl.innerHTML = ""
-        lexiconDisplayEl.append(pre1)
-        lexiconDisplayEl.append(pre2)
+        lexiconDisplayBodyEl.innerHTML = ""
+        lexiconDisplayFooterEl.textContent = ""
+        lexiconDisplayBodyEl.append(pre1)
+        lexiconDisplayBodyEl.append(pre2)
+        window.setTimeout(() => {
+            lexiconDisplayFooterEl.textContent = `Pg. ${current_page}/${lastPage}`
+        }, 100 * iterator_t)
     }
 }
 
 
 const lexiconEl = document.getElementById("lexicon")
-const lexiconDisplayEl = document.getElementById("lexicon-display")
+const lexiconDisplayBodyEl = document.getElementById("lexicon-display-body")
+const lexiconDisplayFooterEl = document.getElementById("lexicon-display-footer")
 
 
 const bodies = await AstronomicalBodies.bodies
 let current_page = 1
 let page_entries = 10
 let entries_num = bodies.length
+let lastPage = Math.floor(entries_num / page_entries)
 console.log(bodies)
 
 

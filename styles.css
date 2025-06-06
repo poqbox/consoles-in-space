@@ -3,7 +3,7 @@
     --lexicon-opened-top: -16px;
     --lexicon-width: 400px;
     --lexicon-height: 400px;
-    --lexicon-display-height: calc(var(--lexicon-height) * 0.8);
+    --lexicon-display-height: calc(var(--lexicon-height) * 0.77);
 
     --radar-diameter: 400px;
     --radar-radius: calc(var(--radar-diameter) / 2);
@@ -22,6 +22,7 @@
 
 * {
     font-family: 'Courier New', Courier, monospace;
+    margin: 0
 }
 
 body {
@@ -98,6 +99,7 @@ body {
     transition-timing-function: ease-out;
 
     h2 {
+        margin-top: 18px;
         margin-left: 2px;
         margin-bottom: 8px;
     }
@@ -116,9 +118,15 @@ body {
 }
 #lexicon-display {
     border: 5px inset black;
-    height: var(--lexicon-display-height);
     margin: 12px;
     margin-top: 0;
     padding: 0 4px;
     background-color: aquamarine;
+}
+#lexicon-display-body {
+    height: var(--lexicon-display-height);
+}
+#lexicon-display-footer {
+    height: calc(1em + 2px);
+    text-align: right;
 }
