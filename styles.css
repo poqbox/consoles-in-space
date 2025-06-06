@@ -37,7 +37,7 @@ body {
     margin: auto;
     margin-top: 40px;
     padding: 8px 2px;
-    border: 2px solid black;
+    border: 8px outset black;
     width: var(--dashboard-width);
     height: var(--dashboard-height);
     display: flex;
