@@ -70,7 +70,7 @@ class Lexicon {
         Lexicon.open()
 
         // setup page
-        this.#resetPage()
+        Lexicon.#resetPage()
         const pre = lexiconDisplayBodyEl.appendChild(document.createElement("pre"))
 
         let iterator_t = 1
