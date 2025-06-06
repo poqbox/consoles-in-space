@@ -95,6 +95,10 @@ body {
     transition-property: top;
     transition-duration: 0.2s;
     transition-timing-function: ease-out;
+
+    h2 {
+        margin-bottom: 8px;
+    }
 }
 .lexicon-tutorial {
     animation-duration: 0.8s;
@@ -109,8 +113,10 @@ body {
     to {box-shadow: 0 0 10px yellow}
 }
 #lexicon-display {
-    border: 1px solid black;
+    border: 5px inset black;
     height: var(--lexicon-display-height);
     margin: 12px;
+    margin-top: 0;
     padding: 0 4px;
+    background-color: aquamarine;
 }
