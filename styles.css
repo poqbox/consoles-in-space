@@ -1,4 +1,7 @@
 :root {
+    --lexicon-closed-top: -380px;
+    --lexicon-opened-top: -16px;
+
     --radar-diameter: 400px;
     --radar-radius: calc(var(--radar-diameter) / 2);
     --range-ring-r1: calc(var(--radar-radius) * 3/4);
@@ -86,6 +89,9 @@ body {
     right: 0;
     border-radius: 16px;
     background-color: #393a3c;
+    transition-property: top;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
 }
 .lexicon-tutorial {
     animation-duration: 0.8s;

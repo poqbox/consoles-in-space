@@ -3,6 +3,18 @@ export {Lexicon}
 
 
 class Lexicon {
+    static toggle() {
+        lexiconEl.classList.remove("lexicon-tutorial")
+        if (lexiconEl.classList.contains("opened")) {
+            lexiconEl.style.top = "var(--lexicon-closed-top)"
+            lexiconEl.classList.replace("opened", "closed")
+        }
+        else if (lexiconEl.classList.contains("closed")) {
+            lexiconEl.style.top = "var(--lexicon-opened-top)"
+            lexiconEl.classList.replace("closed", "opened")
+        }
+    }
+
     static firstPage() {
         Lexicon.#fillPage(0)
         current_page = 1
@@ -97,4 +109,7 @@ let entries_num = bodies.length
 console.log(bodies)
 
 
+lexiconEl.addEventListener("click", (e) => {
+    Lexicon.toggle()
+})
 Lexicon.firstPage()
