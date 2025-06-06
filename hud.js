@@ -65,6 +65,12 @@ class Lexicon {
         current_page--
         Lexicon.#fillPage((current_page - 1) * page_entries)
     }
+    static toPage(page_number) {
+        if (page_number > 0 && page_number < last_page) {
+            current_page = page_number
+            Lexicon.#fillPage((current_page - 1) * page_entries)
+        }
+    }
     static async search(name) {
         const pBody = AstronomicalBodies.getBodyById(name)
         Lexicon.open()

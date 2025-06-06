@@ -19,6 +19,7 @@ globalThis.lastPage = hud.Lexicon.lastPage
 globalThis.nextPage = hud.Lexicon.nextPage
 globalThis.prevPage = hud.Lexicon.prevPage
 globalThis.currentPage = hud.Lexicon.currentPage
+globalThis.toPage = hud.Lexicon.toPage
 globalThis.searchLexicon = hud.Lexicon.search
 
 
