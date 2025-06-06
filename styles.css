@@ -87,6 +87,18 @@ body {
     border-radius: 16px;
     background-color: #393a3c;
 }
+.lexicon-tutorial {
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+    animation-delay: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-name: pulse;
+}
+@keyframes pulse {
+    from {box-shadow: 0 0}
+    to {box-shadow: 0 0 10px yellow}
+}
 #lexicon-display {
     padding: 12px;
 }
