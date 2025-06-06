@@ -54,7 +54,7 @@ body {
 #radar, .range-ring {
     position: relative;
     margin: auto;
-    margin-top: 45px;
+    margin-top: 46px;
     border: 1px solid #58c9d1;
 }
 #radar {
