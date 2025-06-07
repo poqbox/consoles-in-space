@@ -6,7 +6,7 @@ var jsAssembly = new spaceObjects.USSAssembly("JS Assembly")
 var space_battles = {
     europaA1: new spaceObjects.spaceBattle("Europa A1", 6)
 }
-const spaceBattles_as_text = "    " + Object.keys(spaceBattles).join("\n    ")
+const spaceBattles_as_text = "    " + Object.keys(space_battles).join("\n    ")
 
 
 function spaceBattles() {
