@@ -14,6 +14,7 @@ globalThis.jsAssembly = jsAssembly
 globalThis.spaceBattles = spaceBattles
 for (const key in spaceBattles)
     globalThis[key] = spaceBattles[key]
+globalThis.commands = hud.Lexicon.commands
 globalThis.firstPage = hud.Lexicon.firstPage
 globalThis.lastPage = hud.Lexicon.lastPage
 globalThis.nextPage = hud.Lexicon.nextPage
@@ -21,6 +22,7 @@ globalThis.prevPage = hud.Lexicon.prevPage
 globalThis.currentPage = hud.Lexicon.currentPage
 globalThis.toPage = hud.Lexicon.toPage
 globalThis.searchLexicon = hud.Lexicon.search
+globalThis.openLexicon = hud.Lexicon.currentPage
 
 
 console.log(`
@@ -36,10 +38,7 @@ You can enter a space battle with:
 console.log(`Try:
 jsAssembly.enterSpaceBattle(europaA1)
 
-Or skim through the astronomical bodies in your lexicon:
-currentPage()
-nextPage()
-prevPage()
-search([enter_astronomical_body_id])
+For a list of commands, use:
+commands()
 `)
 console.log("\n")

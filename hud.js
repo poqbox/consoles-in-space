@@ -35,6 +35,34 @@ class Lexicon {
             lexiconEl.classList.replace("closed", "opened")
         }
     }
+    static commands() {
+        Lexicon.open()
+
+        // setup page
+        Lexicon.#resetPage()
+        const pre = lexiconDisplayBodyEl.appendChild(document.createElement("pre"))
+
+        const lines = [
+            "List of Commands",
+            "  openLexicon()",
+            "  searchLexicon(<id-of-astronomical-body>)",
+            "  toPage()",
+            "  firstPage()",
+            "  lastPage()",
+            "  nextPage()",
+            "  prevPage()",
+            "  currentPage()",
+            "  commands()"
+        ]
+        let iterator_t = 1
+        // populate page
+        for (const line of lines) {
+            window.setTimeout(() => {
+                pre.textContent += `${line}\n`
+            }, page_update_interval * iterator_t)
+            iterator_t++
+        }
+    }
 
     static firstPage() {
         Lexicon.open()
