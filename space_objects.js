@@ -46,8 +46,15 @@ class ship {
         spaceBattle.retreat(this)
     }
     enterSpaceBattle(spaceBattle) {
-        spaceBattle.enter(this)
-        this.#battle = spaceBattle
+        if (typeof spaceBattle === "string")
+            spaceBattle = globalThis[spaceBattle]
+        try {
+            spaceBattle.enter(this)
+            this.#battle = spaceBattle
+        }
+        catch(error) {
+            console.log("Error: Could not find the provided space battle.")
+        }
     }
 }
 
