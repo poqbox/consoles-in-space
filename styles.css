@@ -96,7 +96,7 @@ body {
     margin: auto;
     left: 0;
     right: 0;
-    box-shadow: 0 6px 2px 4px;
+    box-shadow: 0 16px 6px 8px;
     background-color: #393a3c;
     transition-property: top;
     transition-duration: 0.18s;
@@ -121,12 +121,12 @@ body {
     from {
         box-shadow:
         0 0,
-        0 6px 2px 4px
+        0 16px 6px 8px
     }
     to {
         box-shadow:
         0 0 10px yellow,
-        0 6px 2px 4px
+        0 16px 6px 8px
     }
 }
 #lexicon-display {
