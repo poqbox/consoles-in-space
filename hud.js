@@ -100,21 +100,32 @@ class Lexicon {
         }
     }
     static async search(name) {
-        const pBody = AstronomicalBodies.getBodyById(name)
         Lexicon.open()
 
         // setup page
         Lexicon.#resetPage()
         const pre = lexiconDisplayBodyEl.appendChild(document.createElement("pre"))
 
-        let iterator_t = 1
-        const entry = Lexicon.#getEntry(await pBody)
-        // populate page
-        for (const key in entry) {
+        try {
+            const pBody = AstronomicalBodies.getBodyById(name)
+
+            let iterator_t = 1
+            const body = await pBody
+            const entry = Lexicon.#getEntry(body)
+            // populate page
             window.setTimeout(() => {
-                pre.textContent += `${key}: ${entry[key]}\n`
+                pre.textContent += `(${body.id})\n`
             }, page_update_interval * iterator_t)
             iterator_t++
+            for (const key in entry) {
+                window.setTimeout(() => {
+                    pre.textContent += `${key}: ${entry[key]}\n`
+                }, page_update_interval * iterator_t)
+                iterator_t++
+            }
+        }
+        catch(error) {
+            pre.textContent += `Error: Could not find [${name}] in the lexicon.`
         }
     }
 
