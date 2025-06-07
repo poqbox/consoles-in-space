@@ -43,9 +43,9 @@ class Lexicon {
         const pre = lexiconDisplayBodyEl.appendChild(document.createElement("pre"))
 
         const lines = [
-            "List of Commands",
+            "List of Commands [WIP]",
             "  openLexicon()",
-            "  searchLexicon(<id-of-astronomical-body>)",
+            "  searchLexicon(<id>)",
             "  toPage()",
             "  firstPage()",
             "  lastPage()",
@@ -158,6 +158,8 @@ class Lexicon {
         if (j > bodies.length)
             j = bodies.length
         // populate page
+        pre1.textContent += `(astro. body)\n`
+        pre2.textContent += `(id)\n`
         for (let i=starting_entry_index; i < j; i++) {
             let body = bodies[i]
             window.setTimeout(() => {
