@@ -55,7 +55,7 @@ body {
 #radar, .range-ring {
     position: relative;
     margin: auto;
-    margin-top: 46px;
+    margin-top: 49px;
     border: 1px solid #58c9d1;
 }
 #radar {
@@ -63,7 +63,7 @@ body {
     height: var(--radar-diameter);
     border-radius: var(--radar-radius);
     border: 1px solid black;
-    background-color: #0a2136;
+    background: conic-gradient(#0a2136 358deg, #5bd4f9 360deg, #5bd4f9);
     
     #range-ring-1 {
         width: var(--range-ring-d1);
@@ -81,9 +81,53 @@ body {
         border-radius: var(--range-ring-r3);
     }
     #range-ring-center {
+        margin-top: 43.5px;
         width: var(--range-ring-d_c);
         height: var(--range-ring-d_c);
         border-radius: var(--range-ring-d_c);
+    }
+}
+.radar-sweep {
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-name: radar-sweep;
+}
+@keyframes radar-sweep {
+    0% {
+        background: conic-gradient(from 36deg, #0a2136 315deg, #5bd4f9 358deg, #5bd4f9);
+    }
+    10% {
+        background: conic-gradient(from 72deg, #0a2136 315deg, #5bd4f9 358deg, #5bd4f9);
+    }
+    20% {
+        background: conic-gradient(from 108deg, #0a2136 315deg, #5bd4f9 358deg, #5bd4f9);
+    }
+    30% {
+        background: conic-gradient(from 144deg, #0a2136 315deg, #5bd4f9 358deg, #5bd4f9);
+    }
+    40% {
+        background: conic-gradient(from 180deg, #0a2136 315deg, #5bd4f9 358deg, #5bd4f9);
+    }
+    50% {
+        background: conic-gradient(from 216deg, #0a2136 315deg, #5bd4f9 358deg, #5bd4f9);
+    }
+    60% {
+        background: conic-gradient(from 252deg, #0a2136 315deg, #5bd4f9 358deg, #5bd4f9);
+    }
+    70% {
+        background: conic-gradient(from 288deg, #0a2136 315deg, #5bd4f9 358deg, #5bd4f9);
+    }
+    80% {
+        background: conic-gradient(from 324deg, #0a2136 315deg, #5bd4f9 358deg, #5bd4f9);
+    }
+    90% {
+        background: conic-gradient(from 360deg, #0a2136 315deg, #5bd4f9 358deg, #5bd4f9);
+    }
+    100% {
+        background: conic-gradient(from 36deg, #0a2136 315deg, #5bd4f9 358deg, #5bd4f9);
     }
 }
 
